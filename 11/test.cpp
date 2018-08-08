@@ -4,6 +4,7 @@
 #include "ex13.h"
 #include "ex13.h"
 #include "ex14.h"
+#include "ex15.h"
 #include <iostream>
 using std::cout;
 using std::endl;
@@ -14,7 +15,7 @@ Test::Test()
 
 void Test::run()
 {
-    ex14::run();
+    ex15::run();
 
 
 }
