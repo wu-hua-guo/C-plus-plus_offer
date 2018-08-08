@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cmath>
 #include <vector>
+#include <bitset>
 using namespace std;
 namespace ex14 {
 
@@ -27,7 +28,7 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 
 
 //从下到上，动态规划
-int maxCutting_solution1(int length)
+long long maxCutting_solution1(int length)
 {
     if(length < 2)
         return 0;
@@ -36,20 +37,20 @@ int maxCutting_solution1(int length)
     if(length == 3)
         return 2;
 
-    vector<int> products(length+1,-1);
+    vector<long long> products(length+1,-1);
     products[0] = 0;
     products[1] = 1;
     products[2] = 2;
     products[3] = 3;
 
     //f(n) = max(f(i)*f(n-i));
-    int maxLength = 0;
+    long long maxLength = 0;
     for(int n = 4;n <= length;++n)
     {
         maxLength = products[n];
         for(int i = 1;i <= n/2;++i)
         {
-            int product = products[i]*products[n-i];
+            long long product = products[i]*products[n-i];
             if(maxLength < product)
                 maxLength = product;
         }
@@ -59,10 +60,10 @@ int maxCutting_solution1(int length)
     return products[length];
 }
 //f(n) = max(f(i)*f(n-i)),1<=i<=n;
-int maxCutting(vector<int>& products,int length)
+long long maxCutting(vector<long long>& products,int length)
 {
     //递归边界
-    int  maxLength = products[length];
+    long long  maxLength = products[length];
     if(maxLength!=-1)
         return maxLength;
 
@@ -70,7 +71,7 @@ int maxCutting(vector<int>& products,int length)
 
     for(int i=1;i<=length/2;++i)
     {
-        int product = maxCutting(products,i)*maxCutting(products,length-i);
+        long long product = maxCutting(products,i)*maxCutting(products,length-i);
         if(maxLength < product)
             maxLength = product;
     }
@@ -80,7 +81,7 @@ int maxCutting(vector<int>& products,int length)
 }
 
 //从顶到下，动态规划
-int maxCutting_solution2(int length)
+long long maxCutting_solution2(int length)
 {
     if(length < 2)
         return 0;
@@ -89,7 +90,7 @@ int maxCutting_solution2(int length)
     if(length == 3)
         return 2;
 
-    vector<int> products(length+1,-1);
+    vector<long long> products(length+1,-1);
     products[0] = 0;
     products[1] = 1;
     products[2] = 2;
@@ -282,8 +283,18 @@ void test11()
 }
 void Test(int length)
 {
-    cout << "length("<<length<<")-"<<maxCutting_solution1(length)<<":"<<maxProductAfterCutting_solution1(length);
-    cout << ":"<<maxCutting_solution2(length)<<":"<<maxCutting_solution3(length)<<endl;
+//    cout << "length("<<length<<")-"<<maxCutting_solution1(length)<<":"<<maxProductAfterCutting_solution1(length);
+//    cout << ":"<<maxCutting_solution2(length)<<":"<<maxCutting_solution3(length)<<endl;
+
+    cout <<"length:"<<length<<endl;
+    cout <<maxCutting_solution1(length)<<":"<<maxCutting_solution2(length)<<":"<<maxCutting_solution3(length)<<endl;
+//    bitset<64> bs1 = maxCutting_solution1(length);
+//    bitset<64> bs2 = maxCutting_solution2(length);
+//    bitset<64> bs3 = maxCutting_solution3(length);
+//    cout<<bs1<<endl;
+//    cout<<bs2<<endl;
+//    cout<<bs3<<endl;
+
 }
 
 void run()
@@ -305,12 +316,17 @@ void run()
 
 //    cout <<maxProductAfterCutting_solution2(80)<<endl;
 
-    Test(50);
-    if(maxCutting_solution3(50)>maxCutting_solution2(50))
-        cout <<">";
-    else
-        cout <<"<=";
-    cout<<endl;
+//    Test(50);
+//    if(maxCutting_solution3(50)>maxCutting_solution2(50))
+//        cout <<">";
+//    else
+//        cout <<"<=";
+//    cout<<endl;
+
+    for(int length = 50;length <=80;length+=2)
+        Test(length);
+//    Test(50);
+//    Test(80);
 }
 
 }
