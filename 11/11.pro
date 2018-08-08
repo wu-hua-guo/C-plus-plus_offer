@@ -6,7 +6,8 @@ CONFIG -= qt
 SOURCES += main.cpp \
     test.cpp \
     ex14.cpp \
-    ex15.cpp
+    ex15.cpp \
+    ex16.cpp
 
 HEADERS += \
     test.h \
@@ -14,4 +15,5 @@ HEADERS += \
     ex12.h \
     ex13.h \
     ex14.h \
-    ex15.h
+    ex15.h \
+    ex16.h

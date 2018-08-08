@@ -5,6 +5,7 @@
 #include "ex13.h"
 #include "ex14.h"
 #include "ex15.h"
+#include "ex16.h"
 #include <iostream>
 using std::cout;
 using std::endl;
@@ -15,7 +16,7 @@ Test::Test()
 
 void Test::run()
 {
-    ex15::run();
+    ex16::run();
 
 
 }
