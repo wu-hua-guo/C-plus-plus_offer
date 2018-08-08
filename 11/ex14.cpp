@@ -6,5 +6,6 @@ namespace ex14 {
     void run()
     {
         cout << "run()"<<endl;
+        cout << "what" << endl;
     }
 }
