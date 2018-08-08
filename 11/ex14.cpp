@@ -97,6 +97,36 @@ int maxCutting_solution2(int length)
 
     return maxCutting(products,length);
 }
+long long myPow(int number,int times)
+{
+    long long product = 1;
+    for(int i=0;i !=times;++i)
+    {
+        product *=number;
+    }
+
+    return product;
+}
+//贪婪算法
+long long maxCutting_solution3(int length)
+{
+    if(length < 2)
+        return 0;
+    if(length == 2)
+        return 1;
+    if(length == 3)
+        return 2;
+
+    int threeOfTimes = length/3;
+    if(length - 3*threeOfTimes==1)
+    {
+        threeOfTimes -=1;
+    }
+    int twoOfTimes = (length-3*threeOfTimes)/2;
+
+
+    return myPow(3,threeOfTimes)*myPow(2,twoOfTimes);
+}
 
 // ====================动态规划====================
 int maxProductAfterCutting_solution1(int length)
@@ -133,6 +163,7 @@ int maxProductAfterCutting_solution1(int length)
 
     return max;
 }
+
 
 // ====================贪婪算法====================
 int maxProductAfterCutting_solution2(int length)
@@ -252,7 +283,7 @@ void test11()
 void Test(int length)
 {
     cout << "length("<<length<<")-"<<maxCutting_solution1(length)<<":"<<maxProductAfterCutting_solution1(length);
-    cout << ":"<<maxCutting_solution2(length)<<endl;
+    cout << ":"<<maxCutting_solution2(length)<<":"<<maxCutting_solution3(length)<<endl;
 }
 
 void run()
@@ -269,10 +300,17 @@ void run()
 //    test10();
 //    test11();
 
-    for(int length=-1;length <=10;++length)
-        Test(length);
+//    for(int length=-1;length <=10;++length)
+//        Test(length);
 
-    Test(200);
+//    cout <<maxProductAfterCutting_solution2(80)<<endl;
+
+    Test(50);
+    if(maxCutting_solution3(50)>maxCutting_solution2(50))
+        cout <<">";
+    else
+        cout <<"<=";
+    cout<<endl;
 }
 
 }
