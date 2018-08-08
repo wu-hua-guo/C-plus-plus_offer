@@ -39,7 +39,7 @@ int NumberOf1_3(int n)
 }
 void Test(int n,int result)
 {
-    cout << "n="<<n<<endl;
+    cout << "n="<<n<<" result:"<<result<<endl;
     //cout <<NumberOf1_1(n)<<" ";
     cout <<NumberOf1_2(n)<<" "<<NumberOf1_3(n)<<endl;
     cout <<"-----------"<<endl;
