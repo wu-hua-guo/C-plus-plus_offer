@@ -7,7 +7,10 @@ SOURCES += main.cpp \
     test.cpp \
     ex14.cpp \
     ex15.cpp \
-    ex16.cpp
+    ex16.cpp \
+    ex17.cpp \
+    ex17_1.cpp \
+    ex17_2.cpp
 
 HEADERS += \
     test.h \
@@ -16,4 +19,7 @@ HEADERS += \
     ex13.h \
     ex14.h \
     ex15.h \
-    ex16.h
+    ex16.h \
+    ex17.h \
+    ex17_1.h \
+    ex17_2.h
