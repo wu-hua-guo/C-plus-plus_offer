@@ -111,7 +111,7 @@ void Test(const char* testName, double base, int exponent, double expectedResult
 }
 void Test02(double base,int exponent,double result)
 {
-    cout <<"base:"<<base<<" exponent:"<<exponent<<" result:"<<result<<endl;
+    cout <<"base:"<<base<<" exponent:"<<exponent<<" expect result:"<<result<<" real result:";
     try
     {
 
@@ -121,7 +121,6 @@ void Test02(double base,int exponent,double result)
     {
         cout <<ex.what()<<endl;
     }
-    cout<<"-----\n";
 }
 
 void run()
@@ -154,7 +153,6 @@ void run()
     Test02(0,4,0);
     Test02(0,-4,0);
 
-    Test("Test1", 2, 2, 4, false);
 }
 
 

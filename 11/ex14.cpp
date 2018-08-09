@@ -283,50 +283,16 @@ void test11()
 }
 void Test(int length)
 {
-//    cout << "length("<<length<<")-"<<maxCutting_solution1(length)<<":"<<maxProductAfterCutting_solution1(length);
-//    cout << ":"<<maxCutting_solution2(length)<<":"<<maxCutting_solution3(length)<<endl;
-
     cout <<"length:"<<length<<endl;
     cout <<maxCutting_solution1(length)<<":"<<maxCutting_solution2(length)<<":"<<maxCutting_solution3(length)<<endl;
-//    bitset<64> bs1 = maxCutting_solution1(length);
-//    bitset<64> bs2 = maxCutting_solution2(length);
-//    bitset<64> bs3 = maxCutting_solution3(length);
-//    cout<<bs1<<endl;
-//    cout<<bs2<<endl;
-//    cout<<bs3<<endl;
-
 }
 
 void run()
 {
-//    test1();
-//    test2();
-//    test3();
-//    test4();
-//    test5();
-//    test6();
-//    test7();
-//    test8();
-//    test9();
-//    test10();
-//    test11();
-
-//    for(int length=-1;length <=10;++length)
-//        Test(length);
-
-//    cout <<maxProductAfterCutting_solution2(80)<<endl;
-
-//    Test(50);
-//    if(maxCutting_solution3(50)>maxCutting_solution2(50))
-//        cout <<">";
-//    else
-//        cout <<"<=";
-//    cout<<endl;
 
     for(int length = 50;length <=80;length+=2)
-        Test(length);
-//    Test(50);
-//    Test(80);
+       Test(length);
+
 }
 
 }

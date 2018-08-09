@@ -19,7 +19,7 @@ Test::Test()
 
 void Test::run()
 {
-    ex17_2::run();
+    ex17::run();
 
 
 }

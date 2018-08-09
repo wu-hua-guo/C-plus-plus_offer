@@ -176,7 +176,7 @@ ostream& operator<<(ostream& os,const Digit2& digit)
 }
 void PrintNumber(char* number);
 bool Increment(char* number);
-void Print1ToMaxOfNDigitsRecursively(char* number, int length, int index);
+void Print1ToMaxOfNDigitsRecursively(char* number, int length, int index,bool& isBeginning0);
 
 void PrintOneToMaxOfNDigits_1(int n)
 {
@@ -263,28 +263,31 @@ void Print1ToMaxOfNDigits_2(int n)
     char* number = new char[n + 1];
     number[n] = '\0';
 
-    for (int i = 0; i < 10; ++i)
-    {
-        number[0] = i + '0';
-        Print1ToMaxOfNDigitsRecursively(number, n, 0);
-    }
+    bool isBeginning0 = true;
+    Print1ToMaxOfNDigitsRecursively(number, n, 0,isBeginning0);
 
     cout <<endl;
     delete[] number;
 }
 
-void Print1ToMaxOfNDigitsRecursively(char* number, int length, int index)
+void Print1ToMaxOfNDigitsRecursively(char* number, int length, int index,bool& isBeginning0)
 {
-    if (index == length - 1)
+    if (index == length )
     {
+        if(isBeginning0)
+        {
+            isBeginning0 = false;
+            return;
+        }
+
         PrintNumber(number);
         return;
     }
 
     for (int i = 0; i < 10; ++i)
     {
-        number[index + 1] = i + '0';
-        Print1ToMaxOfNDigitsRecursively(number, length, index + 1);
+        number[index ] = i + '0';
+        Print1ToMaxOfNDigitsRecursively(number, length, index + 1,isBeginning0);
     }
 }
 
@@ -338,6 +341,8 @@ void run()
     //Test(9);
 
     Print1ToMaxOfNDigits_2(2);
+
+    //Print1ToMaxOfNDigits_2(3);
 
 
 
