@@ -9,6 +9,7 @@
 #include "ex17.h"
 #include "ex17_1.h"
 #include "ex17_2.h"
+#include "ex18_1.h"
 #include <iostream>
 using std::cout;
 using std::endl;
@@ -19,7 +20,7 @@ Test::Test()
 
 void Test::run()
 {
-    ex17::run();
+    ex18_1::run();
 
 
 }
