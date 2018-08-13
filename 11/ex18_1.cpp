@@ -1,6 +1,9 @@
 #include "ex18_1.h"
 #include <cstdio>
 #include "Utilities\List.h"
+#include <iostream>
+using std::cout;
+using std::endl;
 namespace ex18_1 {
 /*******************************************************************
 Copyright(c) 2016, Harry He
@@ -60,18 +63,19 @@ void DeleteNode(ListNode** pListHead, ListNode* pToBeDeleted)
 }
 
 // ====================测试代码====================
-void Test(ListNode* pListHead, ListNode* pNode)
+void Test(ListNode** pListHead, ListNode* pNode)
 {
     printf("The original list is: \n");
-    PrintList(pListHead);
+    PrintList(*pListHead);
 
     printf("The node to be deleted is: \n");
     PrintListNode(pNode);
 
-    DeleteNode(&pListHead, pNode);
+    DeleteNode(pListHead, pNode);
 
     printf("The result list is: \n");
-    PrintList(pListHead);
+    PrintList(*pListHead);
+    printf("-----------\n");
 }
 
 // 链表中有多个结点，删除中间的结点
@@ -88,9 +92,11 @@ void Test1()
     ConnectListNodes(pNode3, pNode4);
     ConnectListNodes(pNode4, pNode5);
 
-    Test(pNode1, pNode3);
+    Test(&pNode1, pNode3);
 
-    DestroyList(pNode1);
+    DestroyList2(&pNode1);
+
+    PrintList(pNode1);
 }
 
 // 链表中有多个结点，删除尾结点
@@ -107,9 +113,11 @@ void Test2()
     ConnectListNodes(pNode3, pNode4);
     ConnectListNodes(pNode4, pNode5);
 
-    Test(pNode1, pNode5);
+    Test(&pNode1, pNode5);
 
-    DestroyList(pNode1);
+    DestroyList2(&pNode1);
+
+    PrintList(pNode1);
 }
 
 // 链表中有多个结点，删除头结点
@@ -126,9 +134,11 @@ void Test3()
     ConnectListNodes(pNode3, pNode4);
     ConnectListNodes(pNode4, pNode5);
 
-    Test(pNode1, pNode1);
+    Test(&pNode1, pNode1);
 
-    DestroyList(pNode1);
+    DestroyList2(&pNode1);
+
+    PrintList(pNode1);
 }
 
 // 链表中只有一个结点，删除头结点
@@ -136,23 +146,32 @@ void Test4()
 {
     ListNode* pNode1 = CreateListNode(1);
 
-    Test(pNode1, pNode1);
+    Test(&pNode1, pNode1);
+    DestroyList2(&pNode1);
+
+    PrintList(pNode1);
+
 }
 
 // 链表为空
 void Test5()
 {
-    Test(nullptr, nullptr);
+    DeleteNode(nullptr, nullptr);
+    //Test(nullptr, nullptr);
 }
 
 void run()
 {
     Test1();
+    cout << "end------test1()----"<<endl;
     Test2();
+    cout << "end------test2()----"<<endl;
     Test3();
+    cout << "end------test3()----"<<endl;
     Test4();
+    cout << "end------test4()----"<<endl;
     Test5();
-
+    cout << "end------test5()----"<<endl;
 }
 
 

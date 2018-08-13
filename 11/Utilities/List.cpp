@@ -61,6 +61,22 @@ void PrintList(ListNode* pHead)
 
     printf("\nPrintList ends.\n");
 }
+void printListCore(ListNode* pNode)
+{
+    if(pNode == nullptr)
+        return;
+
+    printf("%d\t",pNode->m_nValue);
+    printListCore(pNode->m_pNext);
+}
+
+void PrintList2(ListNode* pHead)
+{
+    printf("MyPrintList PrintList starts.\n");
+//    ListNode* pNode = pHead;
+    printListCore(pHead);
+    printf("\nPrintList ends.\n");
+}
 
 void DestroyList(ListNode* pHead)
 {
@@ -72,7 +88,29 @@ void DestroyList(ListNode* pHead)
         pNode = pHead;
     }
 }
+void DestroyList2(ListNode*& pHead)
+{
+    if(pHead == nullptr)
+        return;
 
+    ListNode* nextNode = pHead->m_pNext;
+    delete pHead;
+    pHead = nullptr;
+    //
+    DestroyList2(nextNode);
+}
+void DestroyList2(ListNode** pHead)
+{
+    if(pHead == nullptr||*pHead == nullptr)
+        return;
+
+    ListNode* nextNode = ((*pHead)->m_pNext);
+    delete *pHead;
+    *pHead = nullptr;
+    //pHead = nullptr;
+    //
+    DestroyList2(&nextNode);
+}
 void AddToTail(ListNode** pHead, int value)
 {
     ListNode* pNew = new ListNode();

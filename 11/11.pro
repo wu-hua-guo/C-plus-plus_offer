@@ -12,7 +12,12 @@ SOURCES += main.cpp \
     ex17_1.cpp \
     ex17_2.cpp \
     ex18_1.cpp \
-    Utilities/List.cpp
+    Utilities/List.cpp \
+    ex18_2.cpp \
+    ex19.cpp \
+    ex20.cpp \
+    ex18_3.cpp \
+    ex21.cpp
 
 HEADERS += \
     test.h \
@@ -26,4 +31,9 @@ HEADERS += \
     ex17_1.h \
     ex17_2.h \
     ex18_1.h \
-    Utilities/List.h
+    Utilities/List.h \
+    ex18_2.h \
+    ex19.h \
+    ex20.h \
+    ex18_3.h \
+    ex21.h
