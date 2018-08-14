@@ -16,7 +16,11 @@
 #include "ex19.h"
 #include "ex20.h"
 #include "ex21.h"
+#include "ex22_1.h"
 #include "ex22.h"
+#include "ex23.h"
+#include "ex24.h"
+#include "ex25.h"
 #include <algorithm>
 #include <iostream>
 #include <vector>
@@ -30,5 +34,5 @@ Test::Test()
 void Test::run()
 {
 
-    ex22::run();
+    ex25::run();
 }

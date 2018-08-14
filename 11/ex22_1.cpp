@@ -1,84 +1,59 @@
-#include "ex22.h"
-#include "Utilities\List.h"
-#include <cstdio>
-namespace ex22{
-/*******************************************************************
-Copyright(c) 2016, Harry He
-All rights reserved.
+#include "ex22_1.h"
+#include<cstdio>
+#include <stdlib.h>
+namespace ex22_1 {
 
-Distributed under the BSD license.
-(See accompanying file LICENSE.txt at
-https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
-*******************************************************************/
 
-//==================================================================
-// 《剑指Offer——名企面试官精讲典型编程题》代码
-// 作者：何海涛
-//==================================================================
-
-// 面试题22：链表中倒数第k个结点
-// 题目：输入一个链表，输出该链表中倒数第k个结点。为了符合大多数人的习惯，
-// 本题从1开始计数，即链表的尾结点是倒数第1个结点。例如一个链表有6个结点，
-// 从头结点开始它们的值依次是1、2、3、4、5、6。这个链表的倒数第3个结点是
-// 值为4的结点。
-
-ListNode* FindKthToTail(ListNode* pListHead,unsigned int k)
+//结构体节点
+struct ListNode
 {
-    if(pListHead == nullptr || k == 0)
+    int       m_nValue;
+    ListNode* m_pNext;
+};
+void PrintListNode(ListNode* pNode)
+{
+    if(pNode == nullptr)
     {
-        return nullptr;
+        printf("The node is nullptr\n");
     }
-
-    unsigned int size = 0;
-    ListNode* pHead = pListHead;
-    while(pHead !=nullptr)
+    else
     {
-        ++size;
-        pHead = pHead->m_pNext;
+        printf("The key in node is %d.\n", pNode->m_nValue);
     }
-
-    pHead = pListHead;
-    unsigned int n = size - k + 1;
-    if(n > 0)
-    {
-        for(unsigned int index = 1;index < n;++index)
-        {
-            pHead = pHead->m_pNext;
-        }
-    }
-    else return nullptr;
-
-    return pHead;
 }
-
-ListNode* FindKthToTail_2(ListNode* pListHead,unsigned int k)
+ListNode* CreateListNode(int value)
 {
-    if(pListHead == nullptr || k == 0)
+    ListNode* pNode = new ListNode();
+    pNode->m_nValue = value;
+    pNode->m_pNext = nullptr;
+
+    return pNode;
+}
+void ConnectListNodes(ListNode* pCurrent, ListNode* pNext)
+{
+    if(pCurrent == nullptr)
     {
-        return nullptr;
+        printf("Error to connect two nodes.\n");
+        exit(1);
     }
 
-    ListNode* pAhead = pListHead;
-    ListNode* pBhead = pListHead;
+    pCurrent->m_pNext = pNext;
+}
+void DestroyList(ListNode** pHead)
+{
+    if(pHead == nullptr||*pHead == nullptr)
+        return;
 
-    for(unsigned int i = 0; i< k-1;++i){
-        if(pAhead->m_pNext!=nullptr){
-            pAhead = pAhead->m_pNext;
-        }else{
-            return nullptr;
-        }
-    }
-    while(pAhead->m_pNext != nullptr)
-    {
-        pAhead = pAhead->m_pNext;
-        pBhead = pBhead->m_pNext;
-    }
-    return pBhead;
-
+    ListNode* nextNode = ((*pHead)->m_pNext);
+    delete *pHead;
+    *pHead = nullptr;
+    //pHead = nullptr;
+    //
+    DestroyList(&nextNode);
 }
 
 
-ListNode* FindKthToTail_3(ListNode* pListHead, unsigned int k)
+ListNode* FindKthToTail(ListNode* pListHead, unsigned int k)
 {
     //输入链表为空，或者查找数为0，是非法输入，则输出空结果
     if(pListHead == nullptr || k == 0)
@@ -108,8 +83,34 @@ ListNode* FindKthToTail_3(ListNode* pListHead, unsigned int k)
     return pBehind;
 }
 
-// ====================测试代码====================
-// 测试要找的结点在链表中间
+ListNode* FindKthToTail_2(ListNode* pListHead,unsigned int k)
+{
+    if(pListHead == nullptr || k == 0)
+    {
+        return nullptr;
+    }
+
+    unsigned int size = 0;
+    ListNode* pHead = pListHead;
+    while(pHead !=nullptr)
+    {
+        ++size;
+        pHead = pHead->m_pNext;
+    }
+
+    pHead = pListHead;
+    unsigned int n = size - k + 1;
+    if(n > 0)
+    {
+        for(unsigned int index = 1;index < n;++index)
+        {
+            pHead = pHead->m_pNext;
+        }
+    }
+    else return nullptr;
+
+    return pHead;
+}
 void Test1()
 {
     printf("=====Test1 starts:=====\n");
@@ -124,13 +125,15 @@ void Test1()
     ConnectListNodes(pNode3, pNode4);
     ConnectListNodes(pNode4, pNode5);
 
-    printf("expected result: 4.\n");
+    printf(" expected result: 4.\n");
     ListNode* pNode = FindKthToTail(pNode1, 2);
     PrintListNode(pNode);
 
-    DestroyList(pNode1);
-}
+    pNode = FindKthToTail_2(pNode1, 2);
+    PrintListNode(pNode);
 
+    DestroyList(&pNode1);
+}
 // 测试要找的结点是链表的尾结点
 void Test2()
 {
@@ -150,7 +153,11 @@ void Test2()
     ListNode* pNode = FindKthToTail(pNode1, 1);
     PrintListNode(pNode);
 
-    DestroyList(pNode1);
+
+    pNode = FindKthToTail_2(pNode1, 2);
+    PrintListNode(pNode);
+
+    DestroyList(&pNode1);
 }
 
 // 测试要找的结点是链表的头结点
@@ -172,7 +179,10 @@ void Test3()
     ListNode* pNode = FindKthToTail(pNode1, 5);
     PrintListNode(pNode);
 
-    DestroyList(pNode1);
+    pNode = FindKthToTail_2(pNode1, 3);
+    PrintListNode(pNode);
+
+    DestroyList(&pNode1);
 }
 
 // 测试空链表
@@ -181,6 +191,9 @@ void Test4()
     printf("=====Test4 starts:=====\n");
     printf("expected result: nullptr.\n");
     ListNode* pNode = FindKthToTail(nullptr, 100);
+    PrintListNode(pNode);
+
+    pNode = FindKthToTail_2(nullptr, 100);
     PrintListNode(pNode);
 }
 
@@ -203,7 +216,10 @@ void Test5()
     ListNode* pNode = FindKthToTail(pNode1, 6);
     PrintListNode(pNode);
 
-    DestroyList(pNode1);
+    pNode = FindKthToTail_2(pNode1, 6);
+    PrintListNode(pNode);
+
+    DestroyList(&pNode1);
 }
 
 // 测试输入的第二个参数为0
@@ -225,9 +241,10 @@ void Test6()
     ListNode* pNode = FindKthToTail(pNode1, 0);
     PrintListNode(pNode);
 
-    DestroyList(pNode1);
+    pNode = FindKthToTail_2(pNode1, 0);
+    PrintListNode(pNode);
+    DestroyList(&pNode1);
 }
-
 int run()
 {
     Test1();
@@ -239,6 +256,4 @@ int run()
 
     return 0;
 }
-
-
 }

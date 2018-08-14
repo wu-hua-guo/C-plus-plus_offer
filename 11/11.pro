@@ -19,7 +19,11 @@ SOURCES += main.cpp \
     ex18_3.cpp \
     ex21.cpp \
     ex22.cpp \
-    ex18_a.cpp
+    ex18_a.cpp \
+    ex22_1.cpp \
+    ex23.cpp \
+    ex24.cpp \
+    ex25.cpp
 
 HEADERS += \
     test.h \
@@ -40,4 +44,8 @@ HEADERS += \
     ex18_3.h \
     ex21.h \
     ex22.h \
-    ex18_a.h
+    ex18_a.h \
+    ex22_1.h \
+    ex23.h \
+    ex24.h \
+    ex25.h
