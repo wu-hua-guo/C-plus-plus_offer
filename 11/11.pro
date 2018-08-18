@@ -34,7 +34,8 @@ SOURCES += main.cpp \
     ex32.cpp \
     ex32_2.cpp \
     ex32_3.cpp \
-    ex33.cpp
+    ex33.cpp \
+    ex34.cpp
 
 HEADERS += \
     test.h \
@@ -70,4 +71,5 @@ HEADERS += \
     ex32.h \
     ex32_2.h \
     ex32_3.h \
-    ex33.h
+    ex33.h \
+    ex34.h
