@@ -1,3 +1,8 @@
+#include <algorithm>
+#include <iostream>
+#include <vector>
+#include <string>
+#include <stack>
 #include "test.h"
 #include "ex11.h"
 #include "ex12.h"
@@ -21,18 +26,25 @@
 #include "ex23.h"
 #include "ex24.h"
 #include "ex25.h"
-#include <algorithm>
-#include <iostream>
-#include <vector>
+#include "ex26.h"
+#include "ex27.h"
+#include "ex28.h"
+#include "ex29.h"
+#include "ex30.h"
+#include "ex31.h"
+#include "ex32.h"
+#include "ex32_2.h"
+#include "ex32_3.h"
+#include "ex33.h"
+using namespace std;
 
 
 Test::Test()
 {
 
 }
-
 void Test::run()
 {
 
-    ex25::run();
+    ex33::run();
 }

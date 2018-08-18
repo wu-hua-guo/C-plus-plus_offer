@@ -23,7 +23,18 @@ SOURCES += main.cpp \
     ex22_1.cpp \
     ex23.cpp \
     ex24.cpp \
-    ex25.cpp
+    ex25.cpp \
+    ex26.cpp \
+    ex27.cpp \
+    Utilities/BinaryTree.cpp \
+    ex28.cpp \
+    ex29.cpp \
+    ex30.cpp \
+    ex31.cpp \
+    ex32.cpp \
+    ex32_2.cpp \
+    ex32_3.cpp \
+    ex33.cpp
 
 HEADERS += \
     test.h \
@@ -48,4 +59,15 @@ HEADERS += \
     ex22_1.h \
     ex23.h \
     ex24.h \
-    ex25.h
+    ex25.h \
+    ex26.h \
+    ex27.h \
+    Utilities/BinaryTree.h \
+    ex28.h \
+    ex29.h \
+    ex30.h \
+    ex31.h \
+    ex32.h \
+    ex32_2.h \
+    ex32_3.h \
+    ex33.h
