@@ -35,7 +35,9 @@ SOURCES += main.cpp \
     ex32_2.cpp \
     ex32_3.cpp \
     ex33.cpp \
-    ex34.cpp
+    ex34.cpp \
+    Utilities/ComplexList.cpp \
+    ex35.cpp
 
 HEADERS += \
     test.h \
@@ -72,4 +74,6 @@ HEADERS += \
     ex32_2.h \
     ex32_3.h \
     ex33.h \
-    ex34.h
+    ex34.h \
+    Utilities/ComplexList.h \
+    ex35.h
