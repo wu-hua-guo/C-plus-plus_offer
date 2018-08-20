@@ -8,17 +8,20 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
 //==================================================================
-// ¡¶½£Ö¸Offer¡ª¡ªÃûÆóÃæÊÔ¹Ù¾«½²µäĞÍ±à³ÌÌâ¡·´úÂë
-// ×÷Õß£ººÎº£ÌÎ
+// ã€Šå‰‘æŒ‡Offerâ€”â€”åä¼é¢è¯•å®˜ç²¾è®²å…¸å‹ç¼–ç¨‹é¢˜ã€‹ä»£ç 
+// ä½œè€…ï¼šä½•æµ·æ¶›
 //==================================================================
 
 #pragma once
-
+#include <iostream>
+using std::cout;
 struct BinaryTreeNode 
 {
     int                    m_nValue; 
     BinaryTreeNode*        m_pLeft;  
     BinaryTreeNode*        m_pRight; 
+public:
+    //BinaryTreeNode(){cout<<"make new BinaryTreeNode\n";}
 };
 
 __declspec( dllexport ) BinaryTreeNode* CreateBinaryTreeNode(int value);

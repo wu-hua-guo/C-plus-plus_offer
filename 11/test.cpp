@@ -38,6 +38,8 @@
 #include "ex33.h"
 #include "ex34.h"
 #include "ex35.h"
+#include "ex36.h"
+#include "exstl01.h"
 using namespace std;
 
 
@@ -48,5 +50,5 @@ Test::Test()
 void Test::run()
 {
 
-    ex35::run();
+    exstl01::run();
 }
