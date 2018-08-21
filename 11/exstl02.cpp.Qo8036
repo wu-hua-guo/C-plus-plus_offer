@@ -250,19 +250,6 @@ public:
     ~B(){cout<<"delete B\n";}
 };
 
-
-int test12()
-{
-    shared_ptr<A> pa= make_shared<A>();
-    shared_ptr<B> pb = make_shared<B>();
-
-    pa->_pb = pb;
-    pb->_pa = pa;
-    cout<<pa.use_count()<<endl;
-    cout<<pb.use_count()<<endl;
-    return 0;
-}
-
 class B_2;
 class A_2
 {
@@ -276,9 +263,19 @@ public:
     weak_ptr<A_2> _pa;
     ~B_2(){cout<<"delete B_2\n";}
 };
+int test12()
+{
+    shared_ptr<A> pa= make_shared<A>();
+    shared_ptr<B> pb = make_shared<B>();
+
+    pa->_pb = pb;
+    pb->_pa = pa;
+    cout<<pa.use_count()<<endl;
+    cout<<pb.use_count()<<endl;
+    return 0;
+}
 int test13()
 {
-
     shared_ptr<A_2> pa= make_shared<A_2>();
     shared_ptr<B_2> pb = make_shared<B_2>();
 
