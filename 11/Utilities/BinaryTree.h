@@ -29,3 +29,4 @@ __declspec( dllexport ) void ConnectTreeNodes(BinaryTreeNode* pParent, BinaryTre
 __declspec( dllexport ) void PrintTreeNode(const BinaryTreeNode* pNode);
 __declspec( dllexport ) void PrintTree(const BinaryTreeNode* pRoot);
 __declspec( dllexport ) void DestroyTree(BinaryTreeNode* pRoot);
+void PrintTree_1(const BinaryTreeNode* pRoot);

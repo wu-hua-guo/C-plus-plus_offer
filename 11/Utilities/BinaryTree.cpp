@@ -64,11 +64,24 @@ void PrintTree(const BinaryTreeNode* pRoot)
 
     if(pRoot != nullptr)
     {
-        if(pRoot->m_pLeft != nullptr)
+        if(pRoot->m_pLeft)
             PrintTree(pRoot->m_pLeft);
+        if(pRoot->m_pRight)
+            PrintTree(pRoot->m_pRight);
+    }
+}
+
+void PrintTree_1(const BinaryTreeNode* pRoot)
+{
+    PrintTreeNode(pRoot);
+
+    if(pRoot != nullptr)
+    {
+        if(pRoot->m_pLeft != nullptr)
+            PrintTree_1(pRoot->m_pLeft);
 
         if(pRoot->m_pRight != nullptr)
-            PrintTree(pRoot->m_pRight);
+            PrintTree_1(pRoot->m_pRight);
     }
 }
 

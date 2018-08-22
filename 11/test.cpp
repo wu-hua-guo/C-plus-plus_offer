@@ -4,6 +4,8 @@
 #include <string>
 #include <stack>
 #include "test.h"
+#include "exstl01.h"
+#include "exstl02.h"
 #include "ex11.h"
 #include "ex12.h"
 #include "ex13.h"
@@ -39,8 +41,8 @@
 #include "ex34.h"
 #include "ex35.h"
 #include "ex36.h"
-#include "exstl01.h"
-#include "exstl02.h"
+#include "ex37.h"
+
 using namespace std;
 
 
@@ -51,5 +53,5 @@ Test::Test()
 void Test::run()
 {
 
-    exstl02::run();
+    ex37::run();
 }

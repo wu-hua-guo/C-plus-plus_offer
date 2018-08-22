@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <stack>
 namespace  exstl01 {
 using namespace std;
 bool isBigger(const int& lhs,const int& rhs)
@@ -177,6 +178,36 @@ int test09()
     printVec(numbers.begin(),numbers.end());
 
 
+    return 0;
+}
+int lengStr(string& str)
+{
+    stack<char> stackStr;
+    int size = str.size();
+    int length = 0;
+    for(int i=0;i<size;++i)
+    {
+        if(str[i] == '{')
+            stackStr.push(str[i]);
+        else if(str[i] == '}')
+        {
+            if(!stackStr.empty())
+            {
+                stackStr.pop();
+                length +=2;
+            }
+        }
+        else
+            return 0;
+    }
+    return length;
+}
+
+int run01()
+{
+    string str;
+    cin>>str;
+    cout<<lengStr(str);
     return 0;
 }
 int run()

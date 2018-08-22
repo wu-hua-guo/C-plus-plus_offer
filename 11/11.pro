@@ -40,7 +40,8 @@ SOURCES += main.cpp \
     ex35.cpp \
     ex36.cpp \
     exstl01.cpp \
-    exstl02.cpp
+    exstl02.cpp \
+    ex37.cpp
 
 HEADERS += \
     test.h \
@@ -82,4 +83,5 @@ HEADERS += \
     ex35.h \
     ex36.h \
     exstl01.h \
-    exstl02.h
+    exstl02.h \
+    ex37.h
